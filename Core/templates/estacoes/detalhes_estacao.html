@@ -28,10 +28,10 @@
                 <p class="paragrafo">
                     {{ estacao.descricao_estacao }}
                 </p>
-                <a href="" class="botao" style="background-color: var(--roxo-claro);">Faça parte da equipe</a>
+                <a href="{% url 'Core:contato' %}" class="botao" style="background-color: var(--roxo-claro);">Faça parte da equipe</a>
             </article>
             <article class="imagem">
-                <img src="{{ estacao.logo.url }}" alt="{{estacao.nome}} - Imagem" class="imagem-item" style="width: 260px;">
+                <img src="{{ estacao.logo.url }}" alt="{{estacao.nome}} - Imagem" class="imagem-item" style="width: 260px;height: 260px">
             </article>
         </section>
 
