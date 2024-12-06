@@ -1,4 +1,4 @@
-{% extends 'bases\base.html' %}
+{% extends 'bases/base.html' %}
 {% load static %}
 {% block head %}
     <link rel="stylesheet" href="{% static 'style\pages\estacoes\detalhes_estacao.css' %}">
@@ -31,7 +31,7 @@
                 <a href="" class="botao" style="background-color: var(--roxo-claro);">Faça parte da equipe</a>
             </article>
             <article class="imagem">
-                <img src="{{ estacao.logo.url }}" alt="{{estacao.nome}} - Imagem" class="imagem-item">
+                <img src="{{ estacao.logo.url }}" alt="{{estacao.nome}} - Imagem" class="imagem-item" style="width: 260px;">
             </article>
         </section>
 

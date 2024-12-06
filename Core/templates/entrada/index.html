@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{% static 'style/pages/index/index.css' %}">
 {% endblock %}
 {% block title %}
-    Academy One - Home
+    Teste Academy One - Home
 {% endblock %}
 {% block content %}
     <main class="conteudo">
@@ -40,16 +40,19 @@
             <article class="estacoes">
                 <h3 class="estacoes-titulo">Estações Acadêmicas</h3>
                 <div class="estacoes-card">
-                    <div class="card-item grande cinza">
-                        <div class="card-logo">
-                            <img src="{% static 'images/mesas-logo/logo-get.png' %}" alt="Estação de GET" class="logo-img">
-                        </div>
+                    <div class="card-item pequeno cinza">
+                        <a href="{% url 'Core:detalhes_estacao' 'GET' %}" style="text-decoration: none;color: #000;">
+                            <div class="card-logo">
+                                <img src="{% static 'images\estacoes\GET\icon\logo-get-vertical_tCXBWvV.png' %}" alt="Estação de Get" class="logo-img">
+                            </div>
+                        </a>
                     </div>
-
-                    <div class="card-item grande cinza">
-                        <div class="card-logo">
-                            <img src="" alt="Estação de PCA" class="logo-img">
-                        </div>
+                    <div class="card-item pequeno cinza">
+                        <a href="{% url 'Core:detalhes_estacao' 'PCA' %}" style="text-decoration: none;color: #000;">
+                            <div class="card-logo">
+                                <img src="src/images/mesas-logo/logo-PCA.png" alt="Estação de PCA" class="logo-img">
+                            </div>
+                        </a>
                     </div>
                 </div>
             </article>
@@ -58,33 +61,43 @@
                 <h3 class="estacoes-titulo">Estações Gestão</h3>
                 <div class="estacoes-card">
                     <div class="card-item pequeno verde">
-                        <div class="card-logo">
-                            <img src="src/images/mesas-logo/logo-qualidade.png" alt="Estação de qualidade" class="logo-img">
-                        </div>
+                        <a href="{% url 'Core:detalhes_estacao' 'qualidade' %}" style="text-decoration: none;color: #000;">
+                            <div class="card-logo">
+                                <img src="src/images/mesas-logo/logo-qualidade.png" alt="Estação de qualidade" class="logo-img">
+                            </div>
+                        </a>
                     </div>
 
                     <div class="card-item pequeno verde">
-                        <div class="card-logo">
-                            <img src="src/images/mesas-logo/logo-esg.png" alt="Estação de ESG" class="logo-img">
-                        </div>
-                    </div>
-
-                    <div class="card-item grande verde">
-                        <div class="card-logo">
-                            <img src="src/images/mesas-logo/logo-pmo.png" alt="Estação de PMO" class="logo-img">
-                        </div>
+                        <a href="{% url 'Core:detalhes_estacao' 'ESG' %}" style="text-decoration: none;color: #000;">
+                            <div class="card-logo">
+                                <img src="{% static 'images\estacoes\ESG (Environmental, Social, and Governance)\icon\icon_esg.png'%}" alt="Estação de ESG" class="logo-img">
+                            </div>
+                        </a>
                     </div>
 
                     <div class="card-item pequeno verde">
-                        <div class="card-logo">
-                            <img src="src/images/mesas-logo/logo-bpo.png" alt="Estação de BPO" class="logo-img">
-                        </div>
+                        <a href="{% url 'Core:detalhes_estacao' 'PMO' %}" style="text-decoration: none;color: #000;">
+                            <div class="card-logo">
+                                <img src="#" alt="Estação de PMO" class="logo-img">
+                            </div>
+                        </a>
                     </div>
 
                     <div class="card-item pequeno verde">
-                        <div class="card-logo">
-                            <img src="src/images/mesas-logo/logo-rh.png" alt="Estação de RH" class="logo-img">
-                        </div>
+                        <a href="{% url 'Core:detalhes_estacao' 'BPO' %}" style="text-decoration: none;color: #000;">
+                            <div class="card-logo">
+                                <img src="src/images/mesas-logo/logo-bpo.png" alt="Estação de BPO" class="logo-img">
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="card-item pequeno verde">
+                        <a href="{% url 'Core:detalhes_estacao' 'RH' %}" style="text-decoration: none;color: #000;">
+                            <div class="card-logo">
+                                <img src="src/images/mesas-logo/logo-rh.png" alt="Estação de RH" class="logo-img">
+                            </div>
+                        </a>
                     </div>
                 </div>
             </article>
@@ -93,27 +106,35 @@
                 <h3 class="estacoes-titulo">Estações de Tecnologia da Informação</h3>
                 <div class="estacoes-card">
                     <div class="card-item pequeno roxo">
-                        <div class="card-logo">
-                            <img src="" alt="Estação de No Code" class="logo-img">
-                        </div>
+                        <a href="{% url 'Core:detalhes_estacao' 'No Code' %}" style="text-decoration: none;color: #000;">
+                            <div class="card-logo">
+                                <img src="" alt="Estação de No Code" class="logo-img">
+                            </div>
+                        </a>
                     </div>
 
                     <div class="card-item grande roxo">
-                        <div class="card-logo">
-                            <img src="src/images/mesas-logo/logo-lowcode.png" alt="Estação de Low Code" class="logo-img">
-                        </div>
+                        <a href="{% url 'Core:detalhes_estacao' 'Low Code' %}" style="text-decoration: none;color: #000;">
+                            <div class="card-logo">
+                                <img src="src/images/mesas-logo/logo-lowcode.png" alt="Estação de Low Code" class="logo-img">
+                            </div>
+                        </a>
                     </div>
 
                     <div class="card-item grande roxo">
-                        <div class="card-logo">
-                            <img src="" alt="Estação de Dev" class="logo-img">
-                        </div>
+                        <a href="{% url 'Core:detalhes_estacao' 'Dev' %}" style="text-decoration: none;color: #000;">
+                            <div class="card-logo">
+                                <img src="" alt="Estação de Dev" class="logo-img">
+                            </div>
+                        </a>
                     </div>
 
                     <div class="card-item pequeno roxo">
-                        <div class="card-logo">
-                            <img src="src/images/mesas-logo/logo-cloud.png" alt="Estação de Cloud" class="logo-img">
-                        </div>
+                        <a href="{% url 'Core:detalhes_estacao' 'Cloud' %}" style="text-decoration: none;color: #000;">
+                            <div class="card-logo">
+                                <img src="src/images/mesas-logo/logo-cloud.png" alt="Estação de Cloud" class="logo-img">
+                            </div>
+                        </a>
                     </div>
                 </div>
             </article>
@@ -122,21 +143,27 @@
                 <h3 class="estacoes-titulo">Estações de Comunicação Digital</h3>
                 <div class="estacoes-card">
                     <div class="card-item pequeno azul">
-                        <div class="card-logo">
-                            <img src="" alt="Estação de Web" class="logo-img">
-                        </div>
-                    </div>
-
-                    <div class="card-item grande azul">
-                        <div class="card-logo">
-                            <img src="src/images/mesas-logo/logo-marketing.png" alt="Estação de Marketing" class="logo-img">
-                        </div>
+                        <a href="{% url 'Core:detalhes_estacao' 'Web' %}" style="text-decoration: none;color: #000;">
+                            <div class="card-logo">
+                                <img src="" alt="Estação de Web" class="logo-img">
+                            </div>
+                        </a>
                     </div>
 
                     <div class="card-item pequeno azul">
-                        <div class="card-logo">
-                            <img src="src/images/mesas-logo/logo-sdr.png" alt="Estação de Sdr" class="logo-img">
-                        </div>
+                        <a href="{% url 'Core:detalhes_estacao' 'Mkt' %}" style="text-decoration: none;color: #000;">
+                            <div class="card-logo">
+                                <img src="" alt="Estação de marketing" class="logo-img">
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="card-item pequeno azul">
+                        <a href="{% url 'Core:detalhes_estacao' 'Sdr' %}" style="text-decoration: none;color: #000;">
+                            <div class="card-logo">
+                                <img src="" alt="Estação de Sdr" class="logo-img">
+                            </div>
+                        </a>
                     </div>
                 </div>
             </article>

@@ -1,4 +1,4 @@
-{% extends 'bases\menu_lateral.html' %}
+{% extends 'bases/menu_lateral.html' %}
 {% load static %}
 
 
@@ -105,7 +105,7 @@
             {% endif %}
 
             {% if projetos.status == "Em_andamento" %}
-            <td>Em Andamento</td>
+            <td>Em andamento</td>
             {% else %}
             <td>{{ projetos.status }}</td>
             {% endif %}
@@ -154,4 +154,5 @@
 {% endblock %}
 </main>
 {% block js %}
+<script src="{% static 'script\pages\dashboard\list_projects\dashboard.js' %}"></script>
 {% endblock %}

@@ -1,0 +1,180 @@
+.popUp-editar {
+    background-color: var(--cinza-background-pop);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0px;
+    opacity: 0;
+    transform: translate(0%, 150%);
+}
+
+.popUp-editar .popUp-editar-item .popUp-header{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+}
+
+.popUp-editar .popUp-editar-item .popUp-header .titulo {
+    height: auto;
+    font-size: 1.8em;
+    color: var(--azul-escuro);
+}
+
+.popUp-novo {
+    background-color: var(--cinza-background-pop);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0px;
+    opacity: 0;
+    transform: translate(0%, 150%);
+}
+
+.popUp-novo .popUp-novo-item, 
+.popUp-editar .popUp-editar-item {
+    overflow: auto;
+    background-color: var(--branco);
+    max-width: 600px;
+    width: 90%;
+    max-height: 750px;
+    width: 100%;
+    padding: 25px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px 0px;
+    border-radius: 5px;
+}
+
+.popUp-novo .popUp-novo-item::-webkit-scrollbar, 
+.popUp-editar .popUp-editar-item::-webkit-scrollbar {
+    background-color: var(--branco);
+    width: 5px;
+    border-radius: 0px 5px 5px 0px;
+  }
+  
+.popUp-novo .popUp-novo-item::-webkit-scrollbar, 
+.popUp-editar .popUp-editar-item::-webkit-scrollbar {
+    background-color: var(--cinza-claro-02);
+    border-radius: 5px;
+}
+
+.popUp-novo .popUp-novo-item .titulo {
+    width: 93%;
+    height: auto;
+    font-size: 1.8em;
+    color: var(--azul-escuro);
+}
+
+
+.popUp-novo .popUp-novo-item .campo-novo,
+.popUp-editar .popUp-editar-item .campo-novo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0px;
+    width: 95%;
+}
+
+.popUp-novo .popUp-novo-item .campo-novo .novo-titulo,
+.popUp-editar .popUp-editar-item .campo-novo .novo-titulo {
+    color: var(--azul-escuro);
+    font-size: 1.05em;
+    font-weight: 600;
+    padding-left: 5px;
+}
+
+.popUp-novo .popUp-novo-item .campo-novo .novo-box,
+.popUp-editar .popUp-editar-item .campo-novo .novo-box{
+    border: 3px solid var(--azul-escuro);
+    max-width: 800px;
+    width: 100%;
+    min-height: 50px;
+    border-radius: 5px;
+    padding: 0px 10px;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.popUp-novo .popUp-novo-item .campo-novo .novo-box.area,
+.popUp-editar .popUp-editar-item  .campo-novo .novo-box.area {
+    padding: 10px;
+    resize: vertical;
+}
+
+.popUp-novo .popUp-novo-item .botao-novo,
+.popUp-editar .popUp-editar-item  .botao-novo {
+    width: 95%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.popUp-novo .popUp-novo-item .botao-novo .botao-item,
+.popUp-editar .popUp-editar-item .botao-novo .botao-item {
+    max-width: 200px;
+    width: 95%;
+    height: 65px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.popUp-novo .popUp-novo-item .botao-novo .botao-item.cancelar,
+.popUp-editar .popUp-editar-item  .botao-novo .botao-item.cancelar {
+    background-color: var(--cinza-claro);
+    color: var(--branco);
+}
+
+.popUp-novo .popUp-novo-item .botao-novo .botao-item.criar,
+.popUp-editar .popUp-editar-item  .botao-novo .botao-item.criar {
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+}
+
+.popUp-editar .popUp-editar-item .popUp-header .botao-deletar {
+    cursor: pointer;
+    background-color: var(--azul-escuro);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.popUp-editar .popUp-editar-item .popUp-header .botao-deletar .botao-deletar-item {
+    color: var(--branco);
+    font-size: 1.6em;
+}
+
+.popUp-editar.ativo,
+.popUp-novo.ativo {
+    opacity: 1;
+    transition: 0.5s;
+    transform: translate(0%, 0%);
+}

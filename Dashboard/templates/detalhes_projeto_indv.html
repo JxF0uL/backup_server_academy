@@ -2,12 +2,201 @@
 {% load static %}
 
 {% block title %}
-Index Dashboard
+	Eniac Academy - Detalhes do Projeto {{ projeto.id }}
 {% endblock %}
 
-{% block css %}
-
+{% block head %}
+	<link rel="stylesheet" href="{% static 'style/pages/detalhes/detalhes.css' %}">
 {% endblock %}
 {% block content %}
-    <h1><center>{{ projeto.id }}</center> </h1>
+    <main class="conteudo">
+        <section class="detalhes-projeto">
+            <h2 class="titulo">Detalhes do projeto</h2>
+
+            <article class="progresso">
+                <h3 class="progresso-titulo">Progresso do Projeto</h3>
+                <div class="progresso-item">
+                    <div class="progresso-box">
+                        <div class="progresso-barra"></div>
+                    </div>
+                    <p class="progresso-porcentagem">50%</p>
+                </div>
+            </article>
+
+            <article class="detalhes-campo">
+                <label class="campo-titulo">Nome do Projeto:</label>
+                <input type="text" name="" id="" value="Site do Academy - Gestão de projetos internos" class="campo-box">
+            </article>
+
+            <article class="detalhes-campo">
+                <label class="campo-titulo">ID do Projeto:</label>
+                <input type="text" name="" id="" value="Site do Academy - Gestão de projetos internos" class="campo-box">
+            </article>
+
+            <article class="detalhes-campo">
+                <label class="campo-titulo">Proprietário do Projeto:</label>
+                <input type="text" name="" id="" value="Site do Academy - Gestão de projetos internos" class="campo-box">
+            </article>
+
+            <article class="detalhes-campo">
+                <label class="campo-titulo">Número do Projeto:</label>
+                <input type="text" name="" id="" value="Site do Academy - Gestão de projetos internos" class="campo-box">
+            </article>
+        </section>
+
+        <section class="sprint">
+            <h2 class="sprint-titulo">Sprints do Projeto</h2>
+            
+            <div class="botao-criar" onclick="popUpShow('popUp-novo')">
+                <i class="bi bi-plus icon"></i>
+                <p class="botao-titulo">Novo sprint</p>
+            </div>
+
+            <article class="cards-sprint">
+                <div class="card" onclick="popUpShow('popUp-editar')">
+                    <p class="card-titulo">Sprint 1°</p>
+                </div>
+
+                <div class="card">
+                    <p class="card-titulo">Sprint 2°</p>
+                </div>
+
+                <div class="card">
+                    <p class="card-titulo">Sprint 3°</p>
+                </div>
+
+                <div class="card">
+                    <p class="card-titulo">Sprint 4°</p>
+                </div>
+
+                <div class="card">
+                    <p class="card-titulo">Sprint 5°</p>
+                </div>
+
+                <div class="card">
+                    <p class="card-titulo">Sprint 6°</p>
+                </div>
+            </article>
+        </section>
+
+        <section class="popUp-novo">
+            <section class="popUp-novo-item">
+                <h3 class="titulo">Novo sprint</h3>
+
+                <article class="campo-novo">
+                    <label class="novo-titulo">ID:</label>
+                    <input type="text" name="" id="" value="" class="novo-box">
+                </article>
+
+                <article class="campo-novo">
+                    <label class="novo-titulo">Projeto:</label>
+                    <input type="text" name="" id="" value="" class="novo-box">
+                </article>
+
+                <article class="campo-novo">
+                    <label class="novo-titulo">Número do sprint:</label>
+                    <input type="text" name="" id="" value="" class="novo-box">
+                </article>
+
+                <article class="campo-novo">
+                    <label class="novo-titulo">Nome:</label>
+                    <input type="text" name="" id="" value="" class="novo-box">
+                </article>
+
+                <article class="campo-novo">
+                    <label class="novo-titulo">Descrição:</label>
+                    <textarea name="" id="" cols="30" rows="10" class="novo-box area" aria-hidden="true"></textarea>
+                </article>
+
+                <article class="campo-novo">
+                    <label class="novo-titulo">Data de Inicío:</label>
+                    <input type="date" name="" id=""  class="novo-box">
+                </article>
+
+                <article class="campo-novo">
+                    <label class="novo-titulo">Data de termino:</label>
+                    <input type="date" name="" id="" class="novo-box">
+                </article>
+
+                <article class="campo-novo">
+                    <label class="novo-titulo">Status do projeto:</label>
+                    <select name="" id="" class="novo-box">
+                        <option value="Não iniciado">Não iniciado</option>
+                        <option value="Em andamento">Em andamento</option> 
+                        <option value="Finalizado">Finalizado</option> 
+                    </select>
+                </article>
+
+                <article class="botao-novo">
+                    <a href="#" class="botao-item cancelar" onclick="popUpShow('popUp-novo')">Cancelar</a>
+                    <a href="#" class="botao-item criar" onclick="popUpShow('popUp-novo')">Criar</a>
+                </article>
+            </section>
+        </section>
+
+        <section class="popUp-editar">
+            <section class="popUp-editar-item">
+                <div class="popUp-header">
+                    <h3 class="titulo">Sprint 1°</h3>
+
+                    <a href="#" class="botao-deletar">
+                        <i class="bi bi-trash botao-deletar-item"></i>
+                    </a>
+                </div>
+
+                <article class="campo-novo" >
+                    <label class="novo-titulo">ID:</label>
+                    <input type="text" name="" id="" value="" class="novo-box">
+                </article>
+
+                <article class="campo-novo">
+                    <label class="novo-titulo">Projeto:</label>
+                    <input type="text" name="" id="" value="" class="novo-box">
+                </article>
+
+                <article class="campo-novo">
+                    <label class="novo-titulo">Número do sprint:</label>
+                    <input type="text" name="" id="" value="" class="novo-box">
+                </article>
+
+                <article class="campo-novo">
+                    <label class="novo-titulo">Nome:</label>
+                    <input type="text" name="" id="" value="" class="novo-box">
+                </article>
+
+                <article class="campo-novo">
+                    <label class="novo-titulo">Descrição:</label>
+                    <textarea name="" id="" cols="30" rows="10" class="novo-box area" aria-hidden="true"></textarea>
+                </article>
+
+                <article class="campo-novo">
+                    <label class="novo-titulo">Data de Inicío:</label>
+                    <input type="date" name="" id=""  class="novo-box">
+                </article>
+
+                <article class="campo-novo">
+                    <label class="novo-titulo">Data de termino:</label>
+                    <input type="date" name="" id="" class="novo-box">
+                </article>
+
+                <article class="campo-novo">
+                    <label class="novo-titulo">Status do projeto:</label>
+                    <select name="" id="" class="novo-box">
+                        <option value="Não iniciado">Não iniciado</option>
+                        <option value="Em andamento">Em andamento</option> 
+                        <option value="Finalizado">Finalizado</option> 
+                    </select>
+                </article>
+
+                <article class="botao-novo">
+                    <a href="#" class="botao-item cancelar" onclick="popUpShow('popUp-editar')">Cancelar</a>
+                    <a href="#" class="botao-item criar" onclick="popUpShow('popUp-editar')">Salvar</a>
+                </article>
+            </section>
+        </section>
+    </main>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'script/pages/dashboard/popUpShow.js' %}"></script>
 {% endblock %}

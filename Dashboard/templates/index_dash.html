@@ -22,7 +22,7 @@ Index Dashboard
         {% for estacoes in estacoes_get %}
         <div class="card">
             <div class="circle">
-                <img src="{{ estacoes.icon.url }}" alt="" srcset="">
+                <img src="{{ estacoes.icon.url }}" alt="" srcset="" style="max-width: 92px; width: 95%; max-height: 87px; height: 95%;">
             </div>
             <h3 class="title">{{ estacoes.nome }}</h3>
             <a href="{% url 'Dashboard:list_estacao' estacoes.nome %}">

@@ -1,0 +1,92 @@
+.conteudo {
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px 0px;
+}
+
+.conteudo .detalhes-projeto {
+    width: 98%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px 0px;
+}
+
+.conteudo .detalhes-projeto .titulo {
+    color: var(--azul-escuro);
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.conteudo .detalhes-projeto .progresso {
+    display: flex;
+    flex-direction: column;
+    gap: 5px 0px;
+    width: 100%;
+}
+
+.conteudo .detalhes-projeto .progresso .progresso-titulo {
+    color: var(--azul-escuro);
+    font-size: 1.25em;
+    font-weight: 600;
+    padding-left: 5px;
+}
+
+.conteudo .detalhes-projeto .progresso .progresso-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0px 15px;
+}
+
+.conteudo .detalhes-projeto .progresso .progresso-item .progresso-box {
+    background-color:  var(--cinza-claro-02);
+    max-width: 800px;
+    width: 95%;
+    height: 10px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.conteudo .detalhes-projeto .progresso .progresso-item .progresso-box .progresso-barra {
+    background-color: var(--verde-claro-02);
+    height: 100%;
+    width: 50%;
+    border-radius: 20px;
+}
+
+.conteudo .detalhes-projeto .progresso .progresso-item {
+    color: var(--azul-escuro);
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.conteudo .detalhes-projeto .detalhes-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0px;
+    width: 100%;
+}
+
+.conteudo .detalhes-projeto .detalhes-campo .campo-titulo {
+    color: var(--azul-escuro);
+    font-size: 1.25em;
+    font-weight: 600;
+    padding-left: 5px;
+}
+
+.conteudo .detalhes-projeto .detalhes-campo .campo-box {
+    border: 3px solid var(--azul-escuro);
+    max-width: 800px;
+    width: 95%;
+    min-height: 50px;
+    padding: 5px 0px;
+    border-radius: 5px;
+    text-indent: 10px;
+    font-size: 0.9em;
+    font-weight: 500;
+}
