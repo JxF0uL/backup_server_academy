@@ -22,6 +22,15 @@ class Sobre(TemplateView):
 class Contato(TemplateView):
     template_name = 'entrada/contato.html'
 
+class Apoiadores(TemplateView):
+    template_name = 'entrada/apoiadores.html'
+
+def redirect_cadastro_empresa(request):
+    if request.user.is_authenticated:
+        return('Core:add_investidor')
+    else:
+        return redirect('/accounts/login/?next=/core/criar_novo_investidor/')
+        
 
 class DetalhesEstacaoView(DetailView):
     model = Estacoe

@@ -36,6 +36,7 @@
                 <a href="{% url 'Core:sobre' %}" class="item {% if request.path == '/core/sobre/' %}ativo{% endif %}">Sobre</a>
                 <a href="{% url 'Core:desenvolvedores' %}" class="item {% if request.path == '/core/desenvolvedores/' %}ativo{% endif %}">Devs</a>
                 <a href="{% url 'Core:contato' %}" class="item {% if request.path == '/core/contato/' %}ativo{% endif %}">Contato</a>
+                <a href="{% url 'Core:apoiadores' %}" class="item {% if request.path == '/core/contato/' %}ativo{% endif %}">Apoiadores</a>
             </nav>
             {% if not user.is_authenticated %}
             <a href="{% url 'account_login' %}" class="botao">Entrar</a>
