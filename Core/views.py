@@ -4,7 +4,8 @@ from .models import *
 from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, Meta
+from django.urls import reverse
 
 class Homepage(ListView):
     template_name = 'entrada/index.html'
@@ -24,14 +25,7 @@ class Contato(TemplateView):
 
 class Apoiadores(TemplateView):
     template_name = 'entrada/apoiadores.html'
-
-def redirect_cadastro_empresa(request):
-    if request.user.is_authenticated:
-        return('Core:add_investidor')
-    else:
-        return redirect('/accounts/login/?next=/core/criar_novo_investidor/')
         
-
 class DetalhesEstacaoView(DetailView):
     model = Estacoe
     template_name = 'estacoes/detalhes_estacao.html'
@@ -68,6 +62,8 @@ def add_user(request):
             try:
                 user.save()
 
+                
+                
                 # Adicionar o usuário ao grupo selecionado
                 group = form.cleaned_data.get('groups')
                 if group:
@@ -92,10 +88,14 @@ def add_user(request):
 
 @login_required
 def add_investidor(request):
+    if not request.user.is_authenticated:
+        return redirect('/accounts/signup/?next=/core/add_investidor/')
+
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
+            
             try:
                 user.save()
 
@@ -117,3 +117,12 @@ def add_investidor(request):
         form = CustomUserCreationForm()
 
     return render(request, 'entrada/add_investidor.html', {'form': form})
+
+
+def verificar_investidor(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False) # salva o usuário sem persistir o grupo
+            email = form.cleaned_data ['email'] # pega o grupo selecionado
+            if "@eniac.edu.br" in email or "@ENIAC.EDU.BR" in email:
