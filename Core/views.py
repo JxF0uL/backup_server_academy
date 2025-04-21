@@ -68,7 +68,7 @@ def add_user(request):
                     # Registrar como aluno ou investidor dependendo do email
                     email = form.cleaned_data['email']
                     if "@eniac.edu.br" in email:
-                        group_alunos = Group.objects.get(name='Alunos')
+                        group_alunos = Group.objects.get(name='Aluno')
                         user.groups.add(group_alunos)
                         messages.success(request, f'Aluno {user.username} registrado com sucesso!')
                     elif "@eniac.edu.br" not in email:
