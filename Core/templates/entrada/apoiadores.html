@@ -36,7 +36,11 @@
                 <p class="paragrafo">
                     Para mais informações ou para cadastrar sua empresa, entre em contato conosco ou acesse: [inserir link do cadastro, se houver]
                 </p>
-                <a href="{% url 'Core:add_investidor' %}" class="botao">Faça parte da equipe</a>
+                {% if is_apoiador %}
+                    <a href="{% url 'Core:criar_novo_investidor' %}" class="botao">Faça parte da equipe</a>
+                {% else %}
+                    <p>Você não tem acesso a essa área.</p>
+                {% endif %}
             </article>
         </section>
     </main>

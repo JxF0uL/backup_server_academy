@@ -17,14 +17,22 @@ class Desenvolvedores(TemplateView):
 
 
 class Sobre(TemplateView):
-    template_name = 'entrada/sobre.html' 
+    template_name = 'entrada/sobre.html'
 
 
 class Contato(TemplateView):
     template_name = 'entrada/contato.html'
 
-class Apoiadores(TemplateView):
+from django.views.generic import TemplateView
+
+class ApoiadoresView(TemplateView):
     template_name = 'entrada/apoiadores.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        context['is_apoiador'] = user.is_authenticated and user.groups.filter(name='Apoiador').exists()
+        return context
         
 class DetalhesEstacaoView(DetailView):
     model = Estacoe
@@ -130,5 +138,3 @@ def add_investidor(request):
         form = CustomUserCreationForm()
 
     return render(request, 'entrada/add_investidor.html', {'form': form})
-
-                
