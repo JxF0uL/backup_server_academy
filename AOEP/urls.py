@@ -19,6 +19,7 @@ from django.urls import path, include
 from Core.views import Homepage
 from django.conf import settings
 from django.conf.urls.static import static
+from App_dashboardGeral import views
 
 
 urlpatterns = [
@@ -28,6 +29,7 @@ urlpatterns = [
     path('', Homepage.as_view(), name="homepage"),
     path('core/', include("Core.urls")),
     path('dashboard/', include("Dashboard.urls")),
+    path('streamlit/', views.start_streamlit, name='start_streamlit'),
 ]
 
 # Adicione esta linha no final do arquivo, fora da lista urlpatterns
