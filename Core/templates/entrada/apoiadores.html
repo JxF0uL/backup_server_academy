@@ -1,0 +1,50 @@
+{% extends 'bases/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'style/pages/index/index.css' %}">
+{% endblock %}
+
+{% block title %}
+    Academy One - Seja uma empresa parceira
+{% endblock %}
+
+{% block content %}
+    <main class="conteudo">
+        <section class="principal">
+            <article class="escrita">
+                <h1 class="titulo">ENIAC Academy — Conectando Jovens Talentos ao Futuro das Empresas</h1>
+                <p class="paragrafo">
+                    O ENIAC Academy é um hub educacional inovador que integra os alunos do 3º ano do Ensino Médio Técnico e os estudantes do Ensino Superior em um ambiente real de trabalho, onde eles atuam diretamente em projetos multidisciplinares voltados para o mercado.
+                </p>
+                <p class="paragrafo">
+                    Organizado em diversas estações de atuação, como Marketing, Desenvolvimento de Sistemas, Redes, Suporte Técnico, Design e Análise de Dados, o ENIAC Academy funciona como uma verdadeira empresa-escola. Nesses espaços, os alunos aprendem na prática, com foco em resultados, experiência real e soluções para desafios reais do mercado.
+                </p>
+                <h2 class="subtitulo">Por que cadastrar sua empresa como apoiadora?</h2>
+                <ul class="paragrafo">
+                    <li>✅ Recebe apoio de jovens talentos para demandas reais do seu negócio — com supervisão e orientação pedagógica;</li>
+                    <li>✅ Acessa soluções criativas, ágeis e personalizadas, desenvolvidas por alunos comprometidos com a inovação e a prática profissional;</li>
+                    <li>✅ Contribui para a formação de profissionais preparados, que já entram no mercado com experiência e visão estratégica;</li>
+                    <li>✅ Fortalece a conexão entre educação e empregabilidade, promovendo impacto social e desenvolvimento regional.</li>
+                </ul>
+                <p class="paragrafo">
+                    Os alunos atuam com dedicação, responsabilidade e apoio de professores mentores, em um modelo que simula o ambiente corporativo — com prazos, metas, reuniões e entregas.
+                </p>
+                <p class="paragrafo">
+                    Transforme conhecimento em inovação. Cadastre sua empresa e faça parte dessa transformação!
+                </p>
+                <p class="paragrafo">
+                    Para mais informações ou para cadastrar sua empresa, entre em contato conosco ou acesse: [inserir link do cadastro, se houver]
+                </p>
+                {% if is_apoiador %}
+                    <a href="{% url 'Core:criar_novo_investidor' %}" class="botao">Faça parte da equipe</a>
+                {% else %}
+                    <p>Você não tem acesso a essa área.</p>
+                {% endif %}
+            </article>
+        </section>
+    </main>
+{% endblock %}
+
+{% block js %}
+{% endblock %}

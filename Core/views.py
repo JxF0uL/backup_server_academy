@@ -5,6 +5,7 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import CustomUserCreationForm
+from django.urls import reverse
 
 class Homepage(ListView):
     template_name = 'entrada/index.html'
@@ -16,13 +17,23 @@ class Desenvolvedores(TemplateView):
 
 
 class Sobre(TemplateView):
-    template_name = 'entrada/sobre.html' 
+    template_name = 'entrada/sobre.html'
 
 
 class Contato(TemplateView):
     template_name = 'entrada/contato.html'
 
+from django.views.generic import TemplateView
 
+class ApoiadoresView(TemplateView):
+    template_name = 'entrada/apoiadores.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        context['is_apoiador'] = user.is_authenticated and user.groups.filter(name='Apoiador').exists()
+        return context
+        
 class DetalhesEstacaoView(DetailView):
     model = Estacoe
     template_name = 'estacoes/detalhes_estacao.html'
@@ -56,16 +67,29 @@ def add_user(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
+            
             try:
+                # Salva o usuário no banco
                 user.save()
 
-                # Adicionar o usuário ao grupo selecionado
-                group = form.cleaned_data.get('groups')
-                if group:
-                    group.user_set.add(user)
+                try:
+                    # Registrar como aluno ou investidor dependendo do email
+                    email = form.cleaned_data['email']
+                    if "@eniac.edu.br" in email:
+                        group_alunos = Group.objects.get(name='Aluno')
+                        user.groups.add(group_alunos)
+                        messages.success(request, f'Aluno {user.username} registrado com sucesso!')
+                    elif "@eniac.edu.br" not in email:
+                        group_apoiador = Group.objects.get(name='Apoiador')
+                        user.groups.add(group_apoiador)
+                        messages.success(request, f'Apoiador {user.username} registrado com sucesso!')
 
+                except Group.DoesNotExist:
+                    messages.error(request, f'Grupo "{Group.name}" não encontrado. Crie esse grupo no admin.')
+                    
                 messages.success(request, f'Usuário {user.username} foi criado com sucesso!')
                 return redirect('Core:sobre')  # Redirecione para uma página apropriada
+
             except Exception as e:
                 messages.error(request, f'Ocorreu um erro ao salvar o usuário: {str(e)}')
         else:
@@ -81,12 +105,18 @@ def add_user(request):
 
 
 
+
+
 @login_required
 def add_investidor(request):
+    if not request.user.is_authenticated:
+        return redirect('/accounts/signup/?next=/core/add_investidor/')
+
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
+            
             try:
                 user.save()
 

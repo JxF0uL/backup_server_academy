@@ -37,3 +37,21 @@ projectFilter.addEventListener('change', (event) => {
 });
 
 
+var pieChart = {
+    type: 'pie',
+    data: {
+        labels: ['Em andamento', 'Atrasados', 'Concluidos'] ,
+        datasets: [{
+            label: 'Status da estação'] ,
+            data:  [
+                {total_em_andamento},
+                {concluido}, 
+                {atrasado}
+            ],
+            backgroundColor: ['green', 'yellow', 'red']  , 
+        } ,
+    options: {
+        responsive: true
+    }
+    } ;
+

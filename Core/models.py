@@ -92,3 +92,5 @@ class Imagens_equipe(models.Model):
     def __str__(self):
         # Retorna uma string representando a relação com a estação
         return f"{self.alt} - Estação: {self.estacao}"
+
+    
