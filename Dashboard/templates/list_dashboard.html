@@ -1,7 +1,6 @@
 {% extends 'bases/menu_lateral.html' %}
 {% load static %}
-
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 {% block title %}
     Lista de Projetos - AcademyOne
 {% endblock %}
@@ -35,6 +34,10 @@
         <div class="card" id="standby-projects"><span>{{ stand_by }}</span><br>Stand-by<br><span style="font-size: 15px;">fase</span></div>
         <div class="card" id="completed-projects"><span>{{ concluido }}</span><br>Concluído<br><span style="font-size: 15px;">fase</span></div>
         <div class="card" id="delayed-projects"><span>{{ atrasado }}</span><br>Atrasado<br><span style="font-size: 15px;">status</span></div>
+    </div>
+    <div class="dashboards">
+        <p> Dashboard geral </p>
+        <canvas id="DashboardStatus"></canvas>
     </div>
 
     <div class="filters">
