@@ -36,4 +36,3 @@ projectFilter.addEventListener('change', (event) => {
     });
 });
 
-

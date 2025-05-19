@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from .models import Projeto
-from Core.models import Estacoe
+from backup_server_academy.Core.models import Estacoe
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Protegendo views com LoginRequiredMixin
@@ -36,6 +36,7 @@ class DetalhesProjetosEstacoes(LoginRequiredMixin, DetailView):
         context['concluido'] = projetos.filter(fase="Concluido").count()
         context['atrasado'] = projetos.filter(status="Atrasado").count()
 
+        
         return context
 
 
