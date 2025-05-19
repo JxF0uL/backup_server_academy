@@ -36,22 +36,23 @@ projectFilter.addEventListener('change', (event) => {
     });
 });
 
-
-var pieChart = {
-    type: 'pie',
+var ctx = document.getElementById('DashboardStatus').getContext('2d');
+var dashboard = new Chart(ctx, {
+    type: 'pie' ,
     data: {
-        labels: ['Em andamento', 'Atrasados', 'Concluidos'] ,
-        datasets: [{
-            label: 'Status da estação'] ,
-            data:  [
-                {total_em_andamento},
-                {concluido}, 
-                {atrasado}
+        labels: ['Em Andamento', 'Atrasado', 'Concluído'] ,
+        dataset: [{
+            label: 'Status' ,
+            data: [
+                total_em_andamento,
+                atrasado,
+                concluido
             ],
-            backgroundColor: ['green', 'yellow', 'red']  , 
-        } ,
-    options: {
-        responsive: true
+            backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)'
+            ] ,
+        }]
     }
-    } ;
-
+});

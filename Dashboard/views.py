@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from .models import Projeto
-from backup_server_academy.Core.models import Estacoe
+from Core.models import Estacoe
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Protegendo views com LoginRequiredMixin
@@ -10,7 +10,7 @@ class IndexDashboardView(LoginRequiredMixin, ListView):
     model = Estacoe
     context_object_name = "estacoes_get"
 
-
+# a
 class DetalhesProjetosEstacoes(LoginRequiredMixin, DetailView):
     model = Estacoe
     template_name = 'list_dashboard.html'
