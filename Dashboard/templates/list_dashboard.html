@@ -37,8 +37,8 @@
     </div>
     <div class="dashboards">
         <p> Dashboard geral </p>
-        <canvas id="DashboardStatus" width="400" height="400"></canvas>
-        </div>
+        <canvas id="DashboardStatus"></canvas>
+    </div>
 
     <div class="filters">
         <div class="filter">
@@ -157,6 +157,31 @@
 {% endblock %}
 </main>
 {% block js %}
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById("DashboardStatus").getContext('2d');
+const dashboard = new Chart(ctx, {
+    type: 'pie' ,
+    data: {
+        labels: ['Em Andamento', 'Atrasado', 'Concluído'] ,
+        datasets: [{
+            label: 'Status' ,
+            data: [
+                {{ total_em_andamento }},
+                {{ atrasado }},
+                {{ concluido }}
+            ],
+            backgroundColor: [
+                'rgb(245, 197, 1)',
+                'rgb(172, 0, 0)',
+                'rgb(0, 158, 62)'
+            ] ,
+        }] 
+    },
+    options: {
+        responsive: true 
+    }
+});
+</script>
 <script src="{% static 'script\pages\dashboard\list_projects\dashboard.js' %}"></script>
 {% endblock %}

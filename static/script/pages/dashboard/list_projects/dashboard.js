@@ -35,24 +35,3 @@ projectFilter.addEventListener('change', (event) => {
         }
     });
 });
-
-var ctx = document.getElementById('DashboardStatus').getContext('2d');
-var dashboard = new Chart(ctx, {
-    type: 'pie' ,
-    data: {
-        labels: ['Em Andamento', 'Atrasado', 'Concluído'] ,
-        dataset: [{
-            label: 'Status' ,
-            data: [
-                total_em_andamento,
-                atrasado,
-                concluido
-            ],
-            backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(255, 205, 86)'
-            ] ,
-        }]
-    }
-});

@@ -10,7 +10,6 @@ class IndexDashboardView(LoginRequiredMixin, ListView):
     model = Estacoe
     context_object_name = "estacoes_get"
 
-# a
 class DetalhesProjetosEstacoes(LoginRequiredMixin, DetailView):
     model = Estacoe
     template_name = 'list_dashboard.html'
